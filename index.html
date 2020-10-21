@@ -3,9 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>biglietto treno</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-<h1 id="prezzo"></h1>
+    <div class="text-center">
+      <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 text-center">
+          <h3>Nome e Cognome</h3>
+          <input type="text" name="nome" id="namehtml" value="">
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3>Km da percorrere</h3>
+          <input type="number" name="km" id="kmhtml" value="">
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3>Fascia d'età</h3>
+          <select  name="discount" >
+            <option id="discyoung" value="">Minorenne</option>
+            <option id="discold" value="">Over 65</option>
+            <option id="nothing" value="">Nessuno</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-lg-12 text-center">
+          <button type="button" class="btn btn-primary btn-lg">Genera</button>
+          <button type="button" class="btn btn-primary btn-lg">Annulla</button>
+        </div>
+      </div>
+
+      </div>
+
+<!-- <h1 id="prezzo"></h1> -->
 <!-- script -->
 <script src="js/script.js" charset="utf-8"></script>
   </body>
