@@ -14,3 +14,9 @@ body{
 .white-bg{
   background-color:#fff;
 }
+
+.ticket{
+  background-color: #fff;
+  margin-top:100px;
+  display:none;
+}

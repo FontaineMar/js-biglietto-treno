@@ -1,39 +1,48 @@
-// Dati
-
+// dati
+ var UNIT_COST = 0.21;
 
 // button
 var generetor = document.getElementById("buttonhtml");
 
+// input
+var km = document.getElementById("kmHtml");
+var disc = document.getElementById("discount");
 
-
+// OUTPUT
+var ticketName = document.getElementById("finalname");
+var ticketCost = document.getElementById("cost");
+var typeDiscount = document.getElementById('typeDiscount');
 
 
 generetor.addEventListener('click', function(){
-
-  // calcolo chilometri
-  var km = document.getElementById("kmHtml");
-  var kmJs = km * 0.21 ;
-
-  // discount
-  var disc = document.getElementById("discount").value;
+  var name = document.getElementById("firstname");
 
 
-  if (disc == "minorenne"){
-    var price = document.getElementById("cost")
-    price.innerHTML = Math.floor(kmJs * 0.80) + ("€");
+// IMPOSTO I VALORI
+  var nameSur = name.value;
+    console.log(nameSur);
+  var distance = km.value;
+    console.log('valore km', distance);
+  var discYO = disc.value;
+    console.log('valore discount', discYO);
+
+// IMPOSTO IL PRIMO CASO
+  var price = parseInt(distance * UNIT_COST);
+  var discountMessage = "Nessuno sconto applicato";
+
+// CALCOLO DEGLI ALTRI CASI
+  if (discYO == "minorenne"){
+      price -= price * 0.20;
+       discountMessage = "sconto giovani";
   }
-  else if (disc == "over65"){
-    var price = document.getElementById("cost")
-    price.innerHTML = Math.floor(kmJs * 0.60) + ("€");
-  }
-  else if (disc == "nessuno"){
-    var price = document.getElementById("cost");
-    price.innerHTML = Math.floor(kmJs) + ("€");
+  else if (discYO == "over65"){
+      price -= price * 0.40 ;
+       discountMessage =" sconto Over 65";
   }
 
-
-
-
+  typeDiscount.innerHTML = discountMessage;
+  ticketCost.innerHTML =  price.toFixed(2) + ("€") ;
+  ticketName.innerHTML = nameSur;
 
 
 // CODICE TRENO
@@ -47,33 +56,6 @@ carrozza = document.getElementById("carriage");
 numCarr = Math.random(1) * 10 + 1 ;
 carrozza.innerHTML =  (Math.floor(numCarr));
 
+ document.getElementById("ticket").style.display = 'block';
 
-var disc = document.getElementById("discount").value;
-var discName = document.getElementById("typeDiscount");
-discName.innerHTML = disc.value;
-
-// NOME CLIENTE
-  var name = document.getElementById("firstname");
-  var ticketName = document.getElementById("finalname");
-  ticketName.innerHTML = name.value;
 });
-
-// <select name="cars" id="cars">
-//   <option value="volvo">Volvo</option>
-//   <option value="saab">Saab</option>
-//   <option value="mercedes">Mercedes</option>
-//   <option value="audi">Audi</option>
-// </select>
-
-
-// else if (eta >= 65){
-// document.getElementById("prezzo").innerHTML = ("il prezzo del biglietto è di " ) + Math.floor(km * 0.60) + ("€");
-// }
-
-// else if (!isNaN(nome) || isNaN(km)){
-//   document.getElementById("prezzo").innerHTML = ("inserire i dati corretti Grazie");
-// }
-//
-// else {
-//   document.getElementById("prezzo").innerHTML = ("il prezzo del biglietto è di " ) + Math.floor(km) + ("€");
-// }
